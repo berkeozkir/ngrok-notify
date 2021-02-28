@@ -135,6 +135,8 @@ const localtunnel = require('localtunnel');
 	
    //EMAIL SETUP
 	
+  const emailEnabled = cli.flags.email;
+	
   let emailTail = '';
   if (emailEnabled) {
     console.log("Sending Email...");
@@ -146,7 +148,7 @@ const localtunnel = require('localtunnel');
     // patch in property name of port since it's a more technically correct and known term.
  
     const subject = "Smart Camera Link";
-    const message = "YOUR URL IS THIS";
+    const message = "Your camera server url is: " + tunnel.url;
 
     sendEmail(emailOpts, subject, message);
     emailTail = ' (email sent)';
