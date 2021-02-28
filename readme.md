@@ -1,4 +1,9 @@
-# ngrok-notify
+# ngrok-notify THIS IS NOT NGROK-NOTIFY package - THIS PACKAGE IS FORKED BY BERKEOZKIR TO MAKE LOCALTUNNEL-NOTIFY PACKAGE
+IT IS ORIGINALLY CREATED BY THISDAVEJ https://thisdavej.com I only modified slightly to make this package work with localtunnel instead of ngrok.
+
+Ngrok free plan has limited connections per minute and you need to create account get token etc...
+With localtunnel service you dont need an account or token you simply download (npm insall localtunnel) the lt and forward your local server with (lt http 80).
+Localtunnel is much more easy to use but it still need a way of getting the random url. This package does that. Gets the active server url and sends it using ``less secure app enabled`` gmail account.
 
 Create ngrok tunnel to expose localhost to the web and notify by email with the ngrok URL
 
