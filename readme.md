@@ -22,7 +22,7 @@ You should install localtunnel as well.
 $ sudo npm install localtunnel
 ```
 
-REST OF THE DOC IS UNCHANGED. USE WITH CAUSION. - I WILL UPDATE AS I HAVE MORE FREE TIME.
+REST OF THE DOC IS UNCHANGED. USE WITH CAUSION. - I WILL UPDATE WHEN I HAVE MORE FREE TIME.
 ## Configure
 
 Create a directory to store the configuration files and navigate to it:
