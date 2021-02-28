@@ -125,7 +125,7 @@ const emailOpts = config.email;
 
   const emailEnabled = cli.flags.email
   const output = execSync('lt --port 80' , {encoding: 'utf-8'});
-  console.log('Output was: \n', output);
+  console.log('YOUR URL IS:  ', output);
 	
 
   let emailTail = '';
