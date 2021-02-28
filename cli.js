@@ -115,26 +115,18 @@ if (cli.input.length < 2) {
     );
     process.exit(1);
   }
-  // The ngrok npm package parlance uses "addr" instead of "port".
-  opts.addr = port;
 }
-
-// Graft in secrets from .env file to pass to ngrok, if present.
-const auth = process.env.NGROK_AUTH;
-if (auth) opts.auth = auth;
-
-const authtoken = process.env.NGROK_AUTHTOKEN;
-if (authtoken) opts.authtoken = authtoken;
 
 const emailOpts = config.email;
 
 const localtunnel = require('localtunnel');
 
 (async () => {
-  console.log("Opening connection with ngrok...");
+  console.log("Opening connection with localtunnel...");
   const tunnel = await localtunnel({ port: 80 });
 	
-  console.log(`Connected to ngrok: ${tunnel.url} `);
+  console.log(`Connected to localtunnel: `);
+  tunnel.url;
 
   // Add url so it can be interpolated from the message text containing "{url}"
   opts.url = tunnel.url;
