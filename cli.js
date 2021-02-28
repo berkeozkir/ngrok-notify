@@ -124,7 +124,7 @@ const emailOpts = config.email;
   const execSync = require('child_process').execSync;
 
   const emailEnabled = cli.flags.email
-  const output = execSync('ls' , {encoding: 'utf-8'});
+  const output = execSync('lt --port 80' , {encoding: 'utf-8'});
   console.log('Output was: \n', output);
 	
 
