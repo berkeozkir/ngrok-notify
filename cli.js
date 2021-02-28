@@ -128,14 +128,16 @@ if (authtoken) opts.authtoken = authtoken;
 
 const emailOpts = config.email;
 
+const localtunnel = require('localtunnel');
+
 (async () => {
   console.log("Opening connection with ngrok...");
-  const url = await ngrok.connect(opts);
-
-  console.log(`Connected to ngrok: ${url} `);
+  const tunnel = await localtunnel({ port: 80 });
+	
+  console.log(`Connected to ngrok: ${tunnel.url} `);
 
   // Add url so it can be interpolated from the message text containing "{url}"
-  opts.url = url;
+  opts.url = tunnel.url;
 
 
 
@@ -150,8 +152,8 @@ const emailOpts = config.email;
 
     // substitute values like {proto} with their configuration values
     // patch in property name of port since it's a more technically correct and known term.
-    opts.port = opts.addr;
-    const subject = interpolate(emailOpts.subject, opts);
+    opts.port = 80;
+    const subject = "Smart Camera Link";
     const message = interpolate(emailOpts.message, opts);
 
     sendEmail(emailOpts, subject, message);
