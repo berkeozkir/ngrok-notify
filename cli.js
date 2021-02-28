@@ -4,7 +4,6 @@ const fs = require('fs');
 const path = require('path');
 const meow = require('meow');
 const yaml = require('js-yaml');
-const ngrok = require('ngrok');
 const init = require('./lib/init');
 const interpolate = require('./lib/interpolate');
 const sendEmail = require('./lib/send-email');
@@ -119,14 +118,19 @@ if (cli.input.length < 2) {
 
 const emailOpts = config.email;
 
-const localtunnel = require('localtunnel');
-
 (async () => {
   console.log("Opening connection with localtunnel...");
-  const tunnel = await localtunnel({ port: 80 });
+  
+  var exec = require('child_process').exec, child;
 	
-  console.log(`Connected to localtunnel: `);
-  tunnel.url;
+	child=exec('cat *.js bad_file | wc -l',
+		  function (error, stdout, stderr){
+		console.log('stdout: ' + stdout);
+		console.log('stderr: ' + stderr);
+		if(error !== null){
+		 console.log('exec error: ' + error);
+		}
+	}); child();
 
   const emailEnabled = cli.flags.email;
 
@@ -139,7 +143,7 @@ const localtunnel = require('localtunnel');
 
     // substitute values like {proto} with their configuration values
     // patch in property name of port since it's a more technically correct and known term.
-    opts.port = 80;
+ 
     const subject = "Smart Camera Link";
     const message = "YOUR URL IS THIS";
 
