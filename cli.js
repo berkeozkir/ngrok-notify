@@ -45,6 +45,10 @@ const cli = meow(
 
     You can send an email and call webhook with one command specifying both options.
     $ ngrok-notify http 8080 -e -w
+	
+	Git fork by berkeozkir. Please check the original package at thisdavej/ngrok-notify.
+
+	
 `,
   {
     flags: {
