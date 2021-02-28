@@ -128,11 +128,6 @@ const localtunnel = require('localtunnel');
   console.log(`Connected to localtunnel: `);
   tunnel.url;
 
-  // Add url so it can be interpolated from the message text containing "{url}"
-  opts.url = tunnel.url;
-
-
-
   const emailEnabled = cli.flags.email;
 
   let emailTail = '';
@@ -146,7 +141,7 @@ const localtunnel = require('localtunnel');
     // patch in property name of port since it's a more technically correct and known term.
     opts.port = 80;
     const subject = "Smart Camera Link";
-    const message = interpolate(emailOpts.message, opts);
+    const message = "YOUR URL IS THIS";
 
     sendEmail(emailOpts, subject, message);
     emailTail = ' (email sent)';
