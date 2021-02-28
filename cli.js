@@ -118,16 +118,23 @@ if (cli.input.length < 2) {
 
 const emailOpts = config.email;
 
+const localtunnel = require('localtunnel');
+
 (async () => {
   console.log("Opening connection with localtunnel...");
+  const tunnel = await localtunnel({ port: 80, subdomain: 'berkeozkircam' });
+  console.log('YOUR URL IS:  ', tunnel.url);
   
-  const execSync = require('child_process').execSync;
-
-  const emailEnabled = cli.flags.email
-  const output = execSync('lt --port 80' , {encoding: 'utf-8'});
-  console.log('YOUR URL IS:  ', output);
+  tunnel.tunnelCluster.on('request', (request) => {
+	  console.log(request);
+  });
+   tunnel.tunnelCluster.on('close', (args) => {
+	   process.exit();
+   });
 	
-
+	
+   //EMAIL SETUP
+	
   let emailTail = '';
   if (emailEnabled) {
     console.log("Sending Email...");
