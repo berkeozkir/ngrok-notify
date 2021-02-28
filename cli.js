@@ -121,18 +121,12 @@ const emailOpts = config.email;
 (async () => {
   console.log("Opening connection with localtunnel...");
   
-  var exec = require('child_process').exec, child;
-	
-	child=exec('cat *.js bad_file | wc -l',
-		  function (error, stdout, stderr){
-		console.log('stdout: ' + stdout);
-		console.log('stderr: ' + stderr);
-		if(error !== null){
-		 console.log('exec error: ' + error);
-		}
-	}); child();
+  const execSync = require('child_process').execSync;
 
-  const emailEnabled = cli.flags.email;
+  const emailEnabled = cli.flags.email
+  const output = execSync('ls' , {encoding: 'utf-8'});
+  console.log('Output was: \n', output);
+	
 
   let emailTail = '';
   if (emailEnabled) {
