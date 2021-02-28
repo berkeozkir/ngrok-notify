@@ -14,17 +14,15 @@ See my tutorial [here](https://thisdavej.com/how-to-host-a-raspberry-pi-web-serv
 Linux/macOS
 
 ```
-$ sudo npm install --unsafe-perm -g ngrok-notify
+$ sudo npm install berkeozkir/ngrok-notify
 ```
 
-We need to install with the `--unsafe-perm` flag to enable the underlying `ngrok` package to run its postinstall script as root to download and save the ngrok binary in the global `node_modules` folder.  This extra flag is not necessary for Windows installations.
-
-Windows
-
+You should install localtunnel as well.
 ```
-C:\> npm install -g ngrok-notify
+$ sudo npm install localtunnel
 ```
 
+REST OF THE DOC IS UNCHANGED. USE WITH CAUSION. - I WILL UPDATE AS I HAVE MORE FREE TIME.
 ## Configure
 
 Create a directory to store the configuration files and navigate to it:
