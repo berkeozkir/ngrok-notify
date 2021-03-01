@@ -14,12 +14,12 @@ See my tutorial [here](https://thisdavej.com/how-to-host-a-raspberry-pi-web-serv
 Linux/macOS
 
 ```
-$ sudo npm install berkeozkir/ngrok-notify
+$ sudo npm install -g berkeozkir/ngrok-notify
 ```
 
 You should install localtunnel as well.
 ```
-$ sudo npm install localtunnel
+$ sudo npm install -g localtunnel
 ```
 
 REST OF THE DOC IS UNCHANGED. USE WITH CAUSION. - I WILL UPDATE WHEN I HAVE MORE FREE TIME.
