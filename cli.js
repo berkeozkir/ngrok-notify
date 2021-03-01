@@ -130,6 +130,7 @@ const localtunnel = require('localtunnel');
   });
    tunnel.tunnelCluster.on('close', (args) => {
 	   process.exit();
+	   require('child_process').exec('sudo /sbin/shutdown -r now', function (msg) { console.log(msg) });
    });
 	
 	
